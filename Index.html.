@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Knight Vision — Shadow Knight. Citations, philosophie, politique, vie, liberté, amour. Site personnel sombre et doré, bilingue FR/EN.">
+<title>Knight Vision — Shadow Knight</title>
+
+<style>
+:root{
+  --bg:#070707;
+  --panel: rgba(10,10,10,0.78);
+  --gold:#d4af37;
+  --muted:#cfcfcf;
+  --accent:#b8932f;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family: "Poppins", system-ui, Arial, sans-serif;
+  color:#f4f4f4;
+  background:var(--bg) url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1950&q=80') center/cover fixed no-repeat;
+  line-height:1.5;
+}
+header{
+  text-align:center;
+  padding:70px 18px 40px;
+  backdrop-filter: blur(4px);
+  background:linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.25));
+  border-bottom:3px solid rgba(212,175,55,0.25);
+}
+header h1{margin:0;font-size:2.8rem;color:var(--gold);letter-spacing:1.6px;}
+header p{margin:10px 0 0;color:var(--muted);font-style:italic;max-width:920px;margin-left:auto;margin-right:auto;}
+nav{display:flex;justify-content:center;gap:12px;padding:12px 10px;background:rgba(0,0,0,0.6);border-bottom:1px solid rgba(255,255,255,0.03);}
+nav a{color:var(--gold);text-decoration:none;font-weight:700;padding:8px 12px;border-radius:6px;}
+nav a:hover{background:rgba(212,175,55,0.06);color:#fff;}
+.lang-buttons{position:fixed;right:12px;top:12px;display:flex;gap:8px;z-index:40;}
+.lang-buttons button{background:var(--gold);border:0;padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:700;}
+.lang-buttons button.secondary{background:transparent;border:1px solid rgba(212,175,55,0.6);color:var(--gold);}
+main{max-width:1200px;margin:34px auto;padding:0 16px 80px;display:grid;gap:26px;}
+.hero{background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.75));border-radius:12px;padding:30px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;align-items:flex-start;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,0.6);}
+.hero h2{margin:0;color:var(--gold);border-left:6px solid var(--gold);padding-left:12px;}
+.hero p{margin:0;color:#ddd;}
+.two-col{display:grid;grid-template-columns:1fr 380px;gap:18px;}
+@media (max-width:980px){.two-col{grid-template-columns:1fr;}}
+.panel{background:var(--panel);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);}
+h3{margin:0 0 8px;color:var(--gold);font-size:1.05rem;}
+.muted{color:var(--muted);font-size:0.95rem;}
+.themes{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+.theme-btn{background:transparent;border:1px solid rgba(212,175,55,0.16);color:var(--gold);padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:700;}
+.theme-btn.active{background:var(--gold);color:#070707;border-color:var(--gold);}
+.quotes{display:grid;gap:12px; margin-top:6px;}
+.quote{padding:14px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.03);}
+.text-quote{font-size:1.02rem;margin:0 0 6px;color:#f2f2f2;}
+.attribution{font-size:0.88rem;color:var(--muted);}
+.sidebar .card{margin-bottom:12px;}
+.avatar{width:100%;height:180px;border-radius:8px;background-image:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80');background-size:cover;background-position:center;border:2px solid rgba(212,175,55,0.85);}
+.essence p{margin:0 0 8px;}
+footer{padding:26px;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03);margin-top:6px;}
+</style>
+</head>
+<body>
+
+<div class="lang-buttons">
+  <button onclick="setLang('fr')" id="btn-fr">FR 🇫🇷</button>
+  <button class="secondary" onclick="setLang('en')" id="btn-en">EN 🇬🇧</button>
+</div>
+
+<header>
+  <h1>Knight Vision</h1>
+  <p class="fr">Profil personnel de Shadow Knight — pensées, citations, philosophie.</p>
+  <p class="en" style="display:none">Personal profile of Shadow Knight — thoughts, quotes, philosophy.</p>
+</header>
+
+<nav>
+  <a href="#essence">Essence / Essence</a>
+  <a href="#citations">Citations / Quotes</a>
+  <a href="#projets">Projets / Projects</a>
+  <a href="#contact">Contact / Contact</a>
+</nav>
+
+<main>
+  <div class="hero panel">
+    <h2 class="fr">Bienvenue sur Knight Vision</h2>
+    <h2 class="en" style="display:none">Welcome to Knight Vision</h2>
+    <p class="fr muted">Ici se rassemblent des citations originales de Shadow Knight et des citations de grands penseurs, classées par thème.</p>
+    <p class="en muted" style="display:none">Here are original quotes by Shadow Knight and famous thinkers, sorted by theme.</p>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <section id="citations" class="panel">
+        <h3>Citations / Quotes</h3>
+        <div class="themes">
+          <button class="theme-btn active" data-theme="all" onclick="filterTheme('all')">Tout / All</button>
+          <button class="theme-btn" data-theme="philo" onclick="filterTheme('philo')">Philosophie / Philosophy</button>
+          <button class="theme-btn" data-theme="pol" onclick="filterTheme('pol')">Politique / Politics</button>
+          <button class="theme-btn" data-theme="vie" onclick="filterTheme('vie')">Vie / Life</button>
+          <button class="theme-btn" data-theme="liberte" onclick="filterTheme('liberte')">Liberté / Freedom</button>
+          <button class="theme-btn" data-theme="amour" onclick="filterTheme('amour')">Amour / Love</button>
+        </div>
+
+        <div class="quotes" id="quotes-container">
+          <div class="quote" data-theme="philo">
+            <p class="text-quote fr">« Connais-toi toi-même ; c’est la clé de toute liberté. » — Shadow Knight</p>
+            <p class="text-quote en" style="display:none">"Know thyself; it is the key to all freedom." — Shadow Knight</p>
+            <p class="attribution fr">Thème : Philosophie</p>
+            <p class="attribution en" style="display:none">Theme: Philosophy</p>
+          </div>
+          <div class="quote" data-theme="pol">
+            <p class="text-quote fr">« Le pouvoir révèle plus qu’il ne transforme. » — Shadow Knight</p>
+            <p class="text-quote en" style="display:none">"Power reveals more than it transforms." — Shadow Knight</p>
+            <p class="attribution fr">Thème : Politique</p>
+            <p class="attribution en" style="display:none">Theme: Politics</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="sidebar">
+      <section id="essence" class="panel card">
+        <h3>Essence / Core Essence</h3>
+        <div class="avatar-card">
+          <div class="avatar" role="img" aria-label="Portrait stylisé de Shadow Knight"></div>
+          <div class="muted" style="text-align:center; margin-top:10px;">
+            <p><strong>Alias :</strong> Shadow Knight</p>
+            <p><strong>Devise :</strong> Connaitre, Discerner, Agir.</p>
+          </div>
+        </div>
+        <hr style="border-color:rgba(212,175,55,0.1); margin:18px 0;">
+        <div class="essence">
+          <p class="fr">Je suis le gardien des idées, l’observateur silencieux des mouvements du monde. Ce site est mon prisme.</p>
+          <p class="en" style="display:none">I am the guardian of ideas, the silent observer of the world’s movements. This site is my prism.</p>
+          <h4 style="color:var(--accent); font-size:1rem; margin-top:14px; margin-bottom:5px;">Principes Fondamentaux :</h4>
+          <ul style="padding-left:20px; margin-top:0;">
+            <li class="fr">L’autosuffisance philosophique.</li>
+            <li class="en" style="display:none">Philosophical self-sufficiency.</li>
+            <li class="fr">La vérité au-delà des dogmes.</li>
+            <li class="en" style="display:none">Truth beyond dogmas.</li>
+            <li class="fr">La liberté comme responsabilité suprême.</li>
+            <li class="en" style="display:none">Freedom as the supreme responsibility.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projets" class="panel card">
+        <h3>Projets / Projects</h3>
+        <p class="muted fr">Actuellement en réflexion profonde. Un ouvrage sur la souveraineté individuelle est en préparation.</p>
+        <p class="muted en" style="display:none">Currently in deep reflection. A treatise on individual sovereignty is under preparation.</p>
+      </section>
+
+      <section id="contact" class="panel card">
+        <h3>Contact / Contact</h3>
+        <p class="muted fr">La pensée est un échange. Retrouvez-moi ici :</p>
+        <p class="muted en" style="display:none">Thought is an exchange. Find me here :</p>
+        <ul style="list-style:none; padding:0; display:flex; gap:15px; margin-top:10px;">
+          <li><a href="#" style="color:var(--gold); text-decoration:none; font-weight:bold;">✉️ Email</a></li>
+          <li><a href="#" style="color:var(--gold); text-decoration:none; font-weight:bold;">X/Twitter</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script>
+let currentLang = 'fr';
+let currentTheme = 'all';
+
+// Changer la langue
+function setLang(lang) {
+  currentLang = lang;
+  
+  document.getElementById('btn-fr').classList.remove('secondary');
+  document.getElementById('btn-en').classList.remove('secondary');
+  
+  if (lang === 'fr') {
+    document.getElementById('btn-en').classList.add('secondary');
+  } else {
+    document.getElementById('btn-fr').classList.add('secondary');
+  }
+  
+  document.querySelectorAll('.fr').forEach(el => el.style.display = lang === 'fr' ? '' : 'none');
+  document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+}
+
+// Filtrer les citations
+function filterTheme(theme) {
+  currentTheme = theme;
+  
+  const themeButtons = document.querySelectorAll('.theme-btn');
+  themeButtons.forEach(btn => {
+    if (btn.getAttribute('data-theme') === theme) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  
+  document.querySelectorAll('.quote').forEach(quote => {
+    const quoteTheme = quote.getAttribute('data-theme');
+    if (theme === 'all' || quoteTheme === theme) {
+      quote.style.display = 'block';
+    } else {
+      quote.style.display = 'none';
+    }
+  });
+}
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', () => {
+  setLang('fr');
+  filterTheme('all');
+});
+</script>
+
+</body>
+</html>
