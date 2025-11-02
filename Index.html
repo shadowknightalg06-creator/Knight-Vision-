@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Knight Vision — Shadow Knight. Citations, philosophie, politique, vie, liberté, amour. Site personnel sombre et doré, bilingue FR/EN.">
+  <meta name="author" content="Shadow Knight">
+  <meta name="keywords" content="philosophie, liberté, citations, Shadow Knight, Knight Vision, pensée, politique, amour, vie">
+  <title>Knight Vision — Shadow Knight</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/841/841562.png" type="image/png">
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --gold: #d4af37;
+      --text: #f5f5f5;
+      --panel-bg: #1a1a1a;
+      --gold-gradient: linear-gradient(90deg, #d4af37, #b8860b);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      color: var(--gold);
+      font-style: italic;
+      margin-top: 5px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    .theme-btn {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      padding: 8px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .theme-btn:hover {
+      background: var(--gold);
+      color: var(--bg);
+    }
+
+    .theme-btn.secondary {
+      opacity: 0.6;
+    }
+
+    .panel {
+      background: var(--panel-bg);
+      border: 1px solid var(--gold);
+      border-radius: 15px;
+      padding: 25px;
+      width: 90%;
+      max-width: 800px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    h2 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      .panel { padding: 16px; }
+      .theme-btn { font-size: 0.9rem; padding: 6px 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Knight Vision</h1>
+    <p>— Shadow Knight —</p>
+  </header>
+
+  <nav>
+    <button class="theme-btn" id="btn-fr" onclick="setLang('fr')">Français</button>
+    <button class="theme-btn secondary" id="btn-en" onclick="setLang('en')">English</button>
+  </nav>
+
+  <!-- SECTION FR -->
+  <div class="panel fr">
+    <h2>Philosophie & Liberté</h2>
+    <p>La liberté n’est pas donnée, elle se conquiert. L’homme libre est celui qui pense par lui-même, même dans l’ombre.</p>
+  </div>
+
+  <div class="panel fr">
+    <h2>Citations de Shadow Knight</h2>
+    <p>« Dans un monde où tout le monde veut briller, j’ai choisi d’éclairer. »</p>
+    <p>« Ce n’est pas l’ange ni le démon qui me définit, mais l’équilibre entre les deux. »</p>
+  </div>
+
+  <div class="panel fr">
+    <h2>Contact</h2>
+    <ul>
+      <li><a href="mailto:shadowknight@example.com">✉️ Email</a></li>
+      <li><a href="https://twitter.com/ShadowKnight" target="_blank">X / Twitter</a></li>
+    </ul>
+  </div>
+
+  <!-- SECTION EN -->
+  <div class="panel en" style="display:none;">
+    <h2>Philosophy & Freedom</h2>
+    <p>Freedom is not given, it’s earned. A free man is the one who thinks for himself, even in the dark.</p>
+  </div>
+
+  <div class="panel en" style="display:none;">
+    <h2>Quotes by Shadow Knight</h2>
+    <p>“In a world where everyone wants to shine, I chose to enlighten.”</p>
+    <p>“Neither angel nor demon defines me — the balance between both does.”</p>
+  </div>
+
+  <div class="panel en" style="display:none;">
+    <h2>Contact</h2>
+    <ul>
+      <li><a href="mailto:shadowknight@example.com">✉️ Email</a></li>
+      <li><a href="https://twitter.com/ShadowKnight" target="_blank">X / Twitter</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    © 2025 Knight Vision — Shadow Knight. Tous droits réservés.
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      ['fr', 'en'].forEach(code => {
+        document.querySelectorAll(`.${code}`).forEach(el => el.style.display = code === lang ? '' : 'none');
+        document.getElementById(`btn-${code}`).classList.toggle('secondary', code !== lang);
+      });
+    }
+  </script>
+</body>
+</html>
